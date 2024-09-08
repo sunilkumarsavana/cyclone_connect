@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import TitleScreen from './Screens/TitleScreen';
+import LoginScreen from './Screens/LoginScreen/LoginScreen';
+import { useState } from 'react';
+import MainScreen from './Screens/MainScreen/MainScreen';
 
 export default function App() {
+  const [login , setLogin]=useState(true)
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {login&&<LoginScreen onlogin={setLogin}/>}
+      {!login && <MainScreen/>}
     </View>
   );
 }
